@@ -64,7 +64,9 @@ func (w *WSFed) GetRequestURL(params RequestParameters) (requestURL string, err 
 
 	query := url.Values{}
 	query.Add("wa", params.Wa)
-	query.Add("wtrealm", params.Wtrealm)
+	if params.Wtrealm != "" {
+	        query.Add("wtrealm", params.Wtrealm)
+	}
 	if params.Wreply != "" {
 		query.Add("wreply", params.Wreply)
 	}
